@@ -12,21 +12,24 @@
   <h1 class='gifHeader'>
     GifTastic
   </h1>
-
-  <div id='buttonsLocation'>
-  </div>
-
-  <form>
-    <input type="text" id='topicName' placeholder='Add another Reaction'>
-    <button id='submit' class='buttonSubmit' type='submit'>Submit
-
-    </button>
-  </form>
   
-  <div id="gifs-appear-here">
-  </div>
-
-
+  <!--Sitcom Buttons Location-->
+   <div id='buttonsLocation'>
+   </div>
+ 
+  <!--Form to add a sitcom-->
+    <form id='sitcomForm'>
+    <label for='sitcomName'>Add your favorite 90's sitcom!</label>
+    <input type="text" id='sitcomName' placeholder='Sitcom Name'>
+    <br>
+    
+  <!--Button to add a new sitcom-->
+    <input id='addSitcom' type='submit' >
+    </form>
+ 
+   <!--Gifs will appear-->
+    <div id="gifs-appear-here">
+    </div>
 
   <script type="text/javascript" src="./assets/javascript/giphy.js"></script>
 </body>
