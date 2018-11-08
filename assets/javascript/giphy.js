@@ -7,7 +7,7 @@ $(document).ready(function () {
         'Family Matters',
         'Martin',
         'Saved by the Bell',
-        'Will & Grace',
+        'Boy Meets World',
         'The Cosby Show',
         'A Different World'
     ];
@@ -56,8 +56,6 @@ $(document).ready(function () {
                     var rating = response.data[i].rating;
                     var imageAnimate = response.data[i].images.fixed_height.url;
                     var imageStill = response.data[i].images.fixed_height_still.url;
-
-
                     var sitcomImage = $("<img src='" + imageStill + "'>");
                     sitcomImage.attr('alt', x);
                     sitcomImage.attr('data-still', imageStill);
@@ -71,6 +69,7 @@ $(document).ready(function () {
                     sitcomDiv.append(p);
                     sitcomDiv.append(sitcomImage);
                     $("#gifs-appear-here").append(sitcomDiv);
+                    checkState();
                 }
             };
         })
@@ -80,9 +79,9 @@ $(document).ready(function () {
 
 
 function checkState(){
-    $('.gifImage').on('click', function(e) {
-        var state = $(this).attr('data-state');
-        if (state === 'still') {
+    $(document).on('click', '.gifImage',function(e) {
+        var state=$(this).attr('data-state');
+        if (state ==='still') {
             $(this).attr('src', $(this).attr('data-animate'));
             $(this).attr('data-state', 'animate');
         } else {
