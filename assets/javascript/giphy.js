@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+//Create an array of 90's sitcom shows
     var topics = ['Friends',
         'Full House',
         'Seinfeld',
@@ -11,11 +11,11 @@ $(document).ready(function () {
         'The Cosby Show',
         'A Different World'
     ];
-    //Buttons for Array of Sitcoms//
+ //Buttons for Array of Sitcoms
     function executeButtons() {
 
         $('#buttonsLocation').empty();
-
+//Loop for array of shows//
         for (var i = 0; i < topics.length; i++) {
 
             var newButtons = $("<button class='sitcomButtons'>");
@@ -25,20 +25,21 @@ $(document).ready(function () {
             $('#buttonsLocation').append(newButtons);
         };
     };
+//Button for new sitcom show   
     $('#addSitcom').on('click', function (event) {
         event.preventDefault();
+//Grabs new sitcom show from textbox       
         var show = $('#sitcomName').val().trim();
+//Adds movie from textbox to the array       
         topics.push(show);
         executeButtons();
     });
-
-
-
+   
+//AJAX call for specific sitcom button being clicked
     $(document).on('click', '.sitcom', function (event) {
         var x = $(this).attr('value');
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=1bzhSvlOjiCjsDPWw79xG4COHKkd1vhK&limit=10&rating=g";
         console.log(queryURL);
-        //ajax call//
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -47,10 +48,10 @@ $(document).ready(function () {
             displayGifs(response, x);
 
 
-            //Gif display//       
+  //Gif display//                 
             function displayGifs() {
                 $("#gifs-appear-here").empty();
-
+//for Loop for gifs
                 for (i = 0; i < response.data.length; i++) {
 
                     var rating = response.data[i].rating;
@@ -69,7 +70,7 @@ $(document).ready(function () {
                     sitcomDiv.append(p);
                     sitcomDiv.append(sitcomImage);
                     $("#gifs-appear-here").append(sitcomDiv);
-                    checkState();
+                    changeState();
                 }
             };
         })
@@ -77,9 +78,9 @@ $(document).ready(function () {
 
     executeButtons();
 
-
-function checkState(){
-    $(document).on('click', '.gifImage',function(e) {
+//Changing the state of the gif
+function changeState(){
+    $(document).on('click','.gifImage',function(e) {
         var state=$(this).attr('data-state');
         if (state ==='still') {
             $(this).attr('src', $(this).attr('data-animate'));
