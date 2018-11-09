@@ -1,5 +1,14 @@
 .jumbotron{
     text-align:  center;
-    color: black;
+    color:  gold;
     background-color:maroon;
      } 
+
+ #gifs-appear-here{
+     text-align:  center;
+ }   
+ 
+ body{
+    background-color:  gray;
+    font-size:  18px;
+ }
