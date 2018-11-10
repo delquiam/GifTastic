@@ -33,12 +33,12 @@ $(document).ready(function () {
         //Adds movie from textbox to the array       
         topics.push(show);
         executeButtons();
-        changeState();
+        
     });
 
 
     $(document).on("click", ".gifImage", function() {
-        console.log("changeState()");
+       
         var state = $(this).attr('data-state');
         if (state === 'still') {
             $(this).attr('src', $(this).attr('data-animate'));
@@ -85,7 +85,7 @@ $(document).ready(function () {
                     sitcomDiv.append(p);
                     sitcomDiv.append(sitcomImage);
                     $("#gifs-appear-here").append(sitcomDiv);
-                   // changeState();
+                  
                 }
             };
         })
