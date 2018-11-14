@@ -55,7 +55,7 @@ $(document).ready(function () {
     //AJAX call for specific sitcom button being clicked
     $(document).on('click', '.sitcom', function (event) {
         var x = $(this).attr('value');
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=1bzhSvlOjiCjsDPWw79xG4COHKkd1vhK&limit=10&rating=g";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=1bzhSvlOjiCjsDPWw79xG4COHKkd1vhK&limit=10&rating=g";
         console.log(queryURL);
         $.ajax({
             url: queryURL,
